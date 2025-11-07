@@ -1,0 +1,129 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.title {
+  color: var(--teal);
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+}
+
+.journalCard {
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin-bottom: 3rem;
+}
+
+.journalForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.formGroup label {
+  font-weight: 500;
+}
+
+.formGroup textarea {
+  padding: 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: var(--border-radius);
+  resize: vertical;
+  font-family: inherit;
+  transition: border-color var(--transition-speed) ease;
+}
+
+.formGroup textarea:focus {
+  border-color: var(--teal);
+  outline: none;
+}
+
+.moodTagGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.moodTagGroup label {
+  font-weight: 500;
+}
+
+.moodTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.moodTag {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  background-color: #f5f5f5;
+  cursor: pointer;
+  transition: all var(--transition-speed) ease;
+}
+
+.moodTag:hover {
+  background-color: #e0e0e0;
+}
+
+.activeMood {
+  background-color: var(--teal);
+  color: white;
+}
+
+.submitButton {
+  background-color: var(--teal);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+  margin-top: 1rem;
+}
+
+.submitButton:hover {
+  background-color: var(--teal-dark);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+}
+
+.successMessage {
+  text-align: center;
+  padding: 2rem;
+}
+
+.successMessage h3 {
+  color: var(--teal);
+  margin-bottom: 0.5rem;
+}
+
+.journalHistory {
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}
+
+.journalHistory h2 {
+  color: var(--teal);
+  margin-bottom: 1.5rem;
+}
+
+.emptyState {
+  text-align: center;
+  color: var(--text-secondary);
+  padding: 2rem 0;
+}

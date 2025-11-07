@@ -1,0 +1,146 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.title {
+  color: var(--teal);
+  text-align: center;
+  margin-bottom: 0.5rem;
+  font-size: 2.5rem;
+}
+
+.subtitle {
+  text-align: center;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+
+.categories {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.categoryButton {
+  padding: 0.5rem 1.25rem;
+  border: none;
+  border-radius: 20px;
+  background-color: #f5f5f5;
+  color: var(--text-primary);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-speed) ease;
+}
+
+.categoryButton:hover {
+  background-color: #e0e0e0;
+}
+
+.activeCategory {
+  background-color: var(--teal);
+  color: white;
+}
+
+.exercisesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.exerciseCard {
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  transition: all var(--transition-speed) ease;
+}
+
+.exerciseCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.exerciseHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.duration, .level, .category {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  background-color: #f5f5f5;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+}
+
+.category {
+  background-color: var(--teal);
+  color: white;
+}
+
+.exerciseTitle {
+  color: var(--teal);
+  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+}
+
+.exerciseDescription {
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.timerSection {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  color: white;
+  text-align: center;
+}
+
+.timerSection h2 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.startButton {
+  background-color: var(--teal);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 0.6rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-speed) ease;
+  width: 100%;
+}
+
+.startButton:hover:not(:disabled) {
+  background-color: var(--teal-dark);
+}
+
+.startButton:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.emptyState {
+  text-align: center;
+  color: var(--text-secondary);
+  padding: 2rem 0;
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 768px) {
+  .exercisesGrid {
+    grid-template-columns: 1fr;
+  }
+}

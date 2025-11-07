@@ -1,0 +1,16 @@
+.footer {
+  padding: 1.5rem 0;
+  text-align: center;
+  color: #667085;
+  border-top: 1px solid rgba(0,0,0,0.06);
+  background: transparent;
+}
+
+@media (prefers-color-scheme: dark) {
+  .footer {
+    color: #98a2b3;
+    border-top-color: rgba(255,255,255,0.08);
+  }
+}
+
+

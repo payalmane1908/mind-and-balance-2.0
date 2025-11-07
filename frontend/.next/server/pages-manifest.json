@@ -1,0 +1,13 @@
+{
+  "/_app": "pages/_app.js",
+  "/_error": "pages/_error.js",
+  "/_document": "pages/_document.js",
+  "/auth/login": "pages/auth/login.js",
+  "/exercises": "pages/exercises.js",
+  "/": "pages/index.js",
+  "/self-care": "pages/self-care.js",
+  "/journal": "pages/journal.js",
+  "/affirmations": "pages/affirmations.js",
+  "/mood-tracker": "pages/mood-tracker.js",
+  "/dashboard": "pages/dashboard.js"
+}

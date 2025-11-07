@@ -1,0 +1,77 @@
+:root {
+  --lavender: #E6E6FA;
+  --teal: #5F9EA0;
+  --soft-beige: #F5F5DC;
+  --mint: #98FB98;
+  --text-primary: #333;
+  --text-secondary: #666;
+  --background-primary: #fff;
+  --background-secondary: #f9f9f9;
+  --border-radius: 12px;
+  --transition-speed: 0.3s;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: 'Poppins', 'Nunito', 'Quicksand', sans-serif;
+  background-color: var(--background-primary);
+  color: var(--text-primary);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, 
+.button {
+  background-color: var(--teal);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 600;
+  transition: all var(--transition-speed) ease;
+}
+
+button:hover,
+.button:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Animation classes */
+.fade-in {
+  animation: fadeIn var(--transition-speed) ease-in;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.breathing {
+  animation: breathing 4s ease-in-out infinite;
+}
+
+@keyframes breathing {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
