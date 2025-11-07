@@ -14,32 +14,55 @@ export function AuthProvider({ children }) {
       return;
     }
     authService.getProfile()
-      .then((res) => setUser(res.data))
-      .catch(() => {
-        localStorage.removeItem('token');
+      .then((res) => {
+        if (res && res.data) {
+          setUser(res.data);
+        }
+      })
+      .catch((err) => {
+        console.error('Failed to get profile:', err);
+        if (typeof window !== 'undefined') {
+          localStorage.removeItem('token');
+        }
         setUser(null);
       })
       .finally(() => setLoading(false));
   }, []);
 
   const login = async (email, password) => {
-    const res = await authService.login({ email, password });
-    const { token, user: userPayload } = res.data;
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('token', token);
+    try {
+      const res = await authService.login({ email, password });
+      if (res && res.data) {
+        const { token, user: userPayload } = res.data;
+        if (typeof window !== 'undefined' && token) {
+          localStorage.setItem('token', token);
+        }
+        setUser(userPayload);
+        return userPayload;
+      }
+      throw new Error('Invalid response from server');
+    } catch (error) {
+      console.error('Login error:', error);
+      throw error;
     }
-    setUser(userPayload);
-    return userPayload;
   };
 
   const signup = async (name, email, password) => {
-    const res = await authService.signup({ name, email, password });
-    const { token, user: userPayload } = res.data;
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('token', token);
+    try {
+      const res = await authService.signup({ name, email, password });
+      if (res && res.data) {
+        const { token, user: userPayload } = res.data;
+        if (typeof window !== 'undefined' && token) {
+          localStorage.setItem('token', token);
+        }
+        setUser(userPayload);
+        return userPayload;
+      }
+      throw new Error('Invalid response from server');
+    } catch (error) {
+      console.error('Signup error:', error);
+      throw error;
     }
-    setUser(userPayload);
-    return userPayload;
   };
 
   const logout = () => {

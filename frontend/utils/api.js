@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || (typeof window !== 'undefined' ? '/api' : 'http://localhost:5000/api');
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
 
 // Create axios instance with base URL
 const api = axios.create({
@@ -22,6 +22,33 @@ api.interceptors.request.use(
     return config;
   },
   (error) => Promise.reject(error)
+);
+
+// Add response interceptor for error handling
+api.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response) {
+      // Server responded with error status
+      if (error.response.status === 401) {
+        // Unauthorized - clear token and redirect to login
+        if (typeof window !== 'undefined') {
+          localStorage.removeItem('token');
+          if (window.location.pathname !== '/auth/login') {
+            window.location.href = '/auth/login';
+          }
+        }
+      }
+    } else if (error.request) {
+      // Request made but no response received
+      console.error('Network error: No response from server. Make sure the backend is running on http://localhost:5000');
+      error.message = 'Unable to connect to server. Please make sure the backend is running.';
+    } else {
+      // Something else happened
+      console.error('Error:', error.message);
+    }
+    return Promise.reject(error);
+  }
 );
 
 // Auth services
